@@ -1,0 +1,4 @@
+venv
+app/__pycache__
+videoconf/__pycache__
+.vscode/launch.json
