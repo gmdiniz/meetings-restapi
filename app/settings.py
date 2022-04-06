@@ -1,6 +1,5 @@
 from pathlib import Path
 import os, django_heroku
-import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,9 +84,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 # Test DB
 # DATABASES = {
