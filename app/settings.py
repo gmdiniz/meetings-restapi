@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-v^&b4h9%f%hj@npu1tlfhk!_1+#@unm3n31fpx8=d6dyvxx6&i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'meetings-restapi.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -46,10 +46,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8080',
-    'http://127.0.0.1:8080',
-)
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'app.urls'
 
@@ -70,7 +67,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -135,21 +131,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
-django_heroku.settings(locals())
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static')
+)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

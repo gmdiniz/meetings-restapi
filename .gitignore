@@ -1,4 +1,11 @@
+.venv
 venv
+ENV/
+
+.python-version
+
 app/__pycache__
 videoconf/__pycache__
-.vscode/launch.json
+.vscode/
+
+.mypy_cache/
