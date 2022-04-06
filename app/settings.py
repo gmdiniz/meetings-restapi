@@ -1,5 +1,6 @@
 from pathlib import Path
 import os, django_heroku
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -77,13 +78,16 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dcd6fopt4r95qd',
-        'USER': 'soksgujmftgqxu',
-        'PASSWORD': '27080cf2dbb3fb399d61ce11d792ed21cd3201a258fbe1f49ff4509664a3af63',
-        'HOST': 'ec2-54-157-79-121.compute-1.amazonaws.com',
+        'NAME': 'd45nsht83hs5ud',
+        'USER': 'hdcdysfhjfojee',
+        'PASSWORD': '3eba2971cba353acfed0aae63328de818249ecd7f11eae87209902df3182a4c7',
+        'HOST': 'ec2-54-173-77-184.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Test DB
 # DATABASES = {
