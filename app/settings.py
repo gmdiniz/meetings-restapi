@@ -1,5 +1,5 @@
 from pathlib import Path
-import os, django_heroku
+import os
 import dj_database_url
 
 
@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v^&b4h9%f%hj@npu1tlfhk!_1+#@unm3n31fpx8=d6dyvxx6&i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -71,32 +71,30 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd45nsht83hs5ud',
+#         'USER': 'hdcdysfhjfojee',
+#         'PASSWORD': '3eba2971cba353acfed0aae63328de818249ecd7f11eae87209902df3182a4c7',
+#         'HOST': 'ec2-54-173-77-184.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd45nsht83hs5ud',
-        'USER': 'hdcdysfhjfojee',
-        'PASSWORD': '3eba2971cba353acfed0aae63328de818249ecd7f11eae87209902df3182a4c7',
-        'HOST': 'ec2-54-173-77-184.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': 'videoconference',
+        'USER': 'postgres',
+        'PASSWORD': '91739173',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
-
-# Test DB
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'videoconference',
-#         'USER': 'postgres',
-#         'PASSWORD': '91739173',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

@@ -6,6 +6,7 @@ ENV/
 
 app/__pycache__
 videoconf/__pycache__
+videoconf/views/__pycache__
 .vscode/
 
 .mypy_cache/

@@ -5,7 +5,6 @@ from rest_framework.permissions import IsAuthenticated
 
 from ..models import Meeting
 
-
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def ListAllMeetings(request):
